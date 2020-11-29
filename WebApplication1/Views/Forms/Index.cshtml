@@ -1,0 +1,133 @@
+﻿@model SampleSolution.Models.ContactViewModel
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Forms.css" rel="stylesheet" />
+    <script src="~/Scripts/Index.js"></script>
+
+</head>
+<body>
+
+    @using (@Html.BeginForm())
+
+    {
+
+        <div>
+
+            <ul id="ValidationSummary"></ul>
+
+        </div>
+
+        <div class="container containerblock" style="border:1px solid;width: 800px">
+
+            <div class="row">
+
+                <div class="col-xs-6">
+
+                    <div class="row">
+
+                        <div class="col-xs-6 simplecontrol">
+
+                            @Html.LabelFor(Model => Model.FirstName)
+
+                            <div style="clear: both;"></div>
+
+                            @Html.TextBoxFor(Model => Model.FirstName, new { placeholder = "First Name" })
+
+                        </div>
+
+                        <div class="col-xs-6 simplecontrol">
+
+                            @Html.LabelFor(m => m.LastName)
+
+                            <div style="clear: both;"></div>
+
+                            @Html.TextBoxFor(m => m.LastName, new { placeholder = "Last Name" })
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xs-12 simplecontrol">
+
+                            @Html.LabelFor(m => m.YourEmail)
+
+                            <div style="clear: both;"></div>
+
+                            @Html.TextBoxFor(m => m.YourEmail, new { placeholder = "Email Address", @style = "width : inherit" })
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xs-12 simplecontrol">
+
+                            @Html.LabelFor(m => m.PhoneNumber)
+
+                            <div style="clear: both;"></div>
+
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { placeholder = "Phone Number", @style = "width : inherit" })
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-xs-12 simplecontrol">
+
+                            @Html.LabelFor(m => m.ContactPurpose)
+
+                            <div style="clear: both;"></div>
+
+                            @Html.DropDownListFor(m => m.ContactPurpose, new List<SelectListItem> {
+
+                                 new SelectListItem{Text ="Contact Purpose",Value = "Contact", Selected =true },
+
+                                 new SelectListItem{Text ="Ad Posting",Value = "Ads" },
+
+                                 new SelectListItem{Text ="Career Related",Value = "Career" } }, new { @style = "width : inherit", @class = "dropdown" })
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-6">
+
+                    <div class="col-xs-12 ">
+
+                        @Html.LabelFor(m => m.YourMessage)
+
+                        <div style="clear: both;"></div>
+
+                        @Html.TextAreaFor(m => m.YourMessage, new { placeholder = "Hi there, I would like to..", @style = "width : inherit; height :200px " })
+
+                    </div>
+
+                    <div class="col-xs-12">
+
+                        <input id="SubmitButton" class="btn btn-primary pull-right " value="SEND" type="submit">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    }
+</body>
+</html>
